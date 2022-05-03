@@ -1,0 +1,12 @@
+{
+	"name": "Mantalus Organization Workflow",
+	"description": "Mantalus Organization CI starter workflow.",
+	"categories": [
+			"Go"
+	],
+	"filePatterns": [
+			"package.json$",
+			"^Dockerfile",
+			".*\\.md$"
+	]
+}
