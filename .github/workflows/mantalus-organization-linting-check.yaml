@@ -36,5 +36,5 @@ jobs:
         run: pip install cfn-lint  
 
       - name: Run cfn-lint
-        run: cfn-lint -r $(AWS_DEFAULT_REGION) -t ${GITHUB_WORKSPACE}/ansible/roles/*/files/*.yaml
+        run: cfn-lint -r ap-southeast-2 -t ${GITHUB_WORKSPACE}/dummy.yaml
 
