@@ -37,5 +37,5 @@ jobs:
       - name: Terraform Select Workspace
         run: terraform workspace select $(GITHUB_REF_NAME) || terraform workspace new $(GITHUB_REF_NAME)
 
-      # - name: Terraform Init
-      #   run: terraform init
+      - name: Terraform Plan
+        run: terraform plan -var="branch_name=$(BRANCH_NAME)" -var-file=config/nonprod.tfvars 
