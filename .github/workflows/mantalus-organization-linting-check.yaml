@@ -17,8 +17,17 @@ jobs:
       - name: install yamllint
         run: sudo apt-get install yamllint
 
+      - name: where am i?
+        run: ls -l ${GITHUB_WORKSPACE}
+
+      - name: Workspace
+        run: echo $GITHUB_WORKSPACE
+
+      - name: HOME
+        run: echo $HOME
+
       - name: Run yamllint
-        run: yamllint -s *
+        run: yamllint -s ${GITHUB_WORKSPACE}/dummy.yaml
 
       - name: Install Python3 
         run: sudo apt-get install python3
@@ -27,5 +36,5 @@ jobs:
         run: pip install cfn-lint  
 
       - name: Run cfn-lint
-        run: cfn-lint -r $(AWS_DEFAULT_REGION) -t ansible/roles/*/files/*.yaml
+        run: cfn-lint -r ap-southeast-2 -t ${GITHUB_WORKSPACE}/dummy.yaml
 
