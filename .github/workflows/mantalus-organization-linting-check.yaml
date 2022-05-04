@@ -17,6 +17,15 @@ jobs:
       - name: install yamllint
         run: sudo apt-get install yamllint
 
+      - name: where am i?
+        run: ls 
+
+      - name: Workspace
+        run: echo $GITHUB_WORKSPACE
+
+      - name: HOME
+        run: echo $HOME
+
       - name: Run yamllint
         run: yamllint -s ./workflow-templates/mantalus-organization-ci.yaml
 
