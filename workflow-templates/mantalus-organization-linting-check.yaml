@@ -13,8 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: install yamllint
+        run: sudo apt-get install yamllint
+
       - name: Run yamllint
         run: yamllint -s *
+
+      - name: Install Python3 
+        run: sudo apt-get install python3
+
+      - name: Install cfn-lint
+        run: pip install cfn-lint  
 
       - name: Run cfn-lint
         run: cfn-lint -r $(AWS_DEFAULT_REGION) -t ansible/roles/*/files/*.yaml
