@@ -28,5 +28,14 @@ jobs:
           role-to-assume: ${{ inputs.role-to-assume }}
           aws-region: ${{ inputs.aws-region }}
 
-      - name: Init
-        run: cd ${GITHUB_WORKSPACE} && terraform init
+      - name: Move to workspace directory
+        run: cd ${GITHUB_WORKSPACE} 
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Select Workspace
+        run: terraform workspace select $(GITHUB_REF_NAME) || terraform workspace new $(GITHUB_REF_NAME)
+
+      # - name: Terraform Init
+      #   run: terraform init
