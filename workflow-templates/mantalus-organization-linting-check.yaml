@@ -14,7 +14,8 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Run yamllint
-        run: yamllint -s .github/workflow-templates/*
+        run: yamllint -s *
 
       - name: Run cfn-lint
-	      run: cfn-lint -r $(AWS_DEFAULT_REGION) -t .github/workflow-templates/*
+        run: cfn-lint -r $(AWS_DEFAULT_REGION) -t ansible/roles/*/files/*.yaml
+
