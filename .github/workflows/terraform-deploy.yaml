@@ -39,3 +39,6 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan -var="branch_name=${GITHUB_REF_NAME}" -var-file=config/nonprod.tfvars 
+
+      - name: Terraform Plan
+        run: terraform apply -var="branch_name=${GITHUB_REF_NAME}" -var-file=config/nonprod.tfvars -auto-approve
