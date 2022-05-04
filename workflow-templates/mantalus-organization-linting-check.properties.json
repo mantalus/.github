@@ -1,0 +1,12 @@
+{
+	"name": "Mantalus Organization Linting Check Workflow",
+	"description": "Mantalus Organization Linting Check starter workflow.",
+	"categories": [
+			"Go"
+	],
+	"filePatterns": [
+			"package.json$",
+			"^Dockerfile",
+			".*\\.md$"
+	]
+}
