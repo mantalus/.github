@@ -18,7 +18,7 @@ jobs:
         run: sudo apt-get install yamllint
 
       - name: Run yamllint
-        run: yamllint -s *
+        run: yamllint -s ./workflow-templates/mantalus-organization-ci.yaml
 
       - name: Install Python3 
         run: sudo apt-get install python3
