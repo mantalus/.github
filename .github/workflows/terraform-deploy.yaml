@@ -43,5 +43,5 @@ jobs:
       - name: Terraform Plan
         run: terraform plan -var="branch_name=${GITHUB_REF_NAME}" -var-file=${{ inputs.var-file}}
 
-      - name: Terraform Plan
+      - name: Terraform Apply
         run: terraform apply -var="branch_name=${GITHUB_REF_NAME}" -var-file=${{ inputs.var-file }} -auto-approve
