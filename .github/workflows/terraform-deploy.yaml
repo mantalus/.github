@@ -9,6 +9,9 @@ on:
       aws-region:
         required: true
         type: string
+      var-file:
+        required: true
+        type: string
 
 jobs:
   build:
@@ -38,7 +41,7 @@ jobs:
         run: terraform workspace select ${GITHUB_REF_NAME} || terraform workspace new ${GITHUB_REF_NAME}
 
       - name: Terraform Plan
-        run: terraform plan -var="branch_name=${GITHUB_REF_NAME}" -var-file=config/nonprod.tfvars 
+        run: terraform plan -var="branch_name=${GITHUB_REF_NAME}" -var-file=${{ inputs.var-file}}
 
       - name: Terraform Plan
-        run: terraform apply -var="branch_name=${GITHUB_REF_NAME}" -var-file=config/nonprod.tfvars -auto-approve
+        run: terraform apply -var="branch_name=${GITHUB_REF_NAME}" -var-file=${{ inputs.var-file }} -auto-approve
