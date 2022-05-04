@@ -1,0 +1,12 @@
+{
+	"name": "Mantalus Terraform Workflow",
+	"description": "Mantalus Terraform Workflow.",
+	"categories": [
+			"Terraform"
+	],
+	"filePatterns": [
+			"package.json$",
+			"^Dockerfile",
+			".*\\.md$"
+	]
+}
